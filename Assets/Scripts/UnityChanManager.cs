@@ -9,6 +9,7 @@ public class UnityChanManager : MonoBehaviour {
     public bool isLeftRunning;
     public bool isBothButton;
     public bool isSameTapButton;
+    public float speed = 0.05f;
     // Use this for initialization
     void Start() {
         animator = GetComponent<Animator>();
@@ -26,9 +27,9 @@ public class UnityChanManager : MonoBehaviour {
             animator.SetBool("is_running", true);
             Vector3 pos = transform.position;
             if (isRightRunning) {
-                pos.x -= 0.05f;
+                pos.x -= speed;
             } else {
-                pos.x += 0.05f;
+                pos.x += speed;
             }
             if (pos.x >= 2.3f) {
                 pos.x = 2.3f;
