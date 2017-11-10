@@ -78,6 +78,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Scripts\ScoreTextManager.cs" />
+    <Compile Include="Assets\Scripts\TitleManager.cs" />
     <Compile Include="Assets\Scripts\UnityChanManager.cs" />
   </ItemGroup>
   <ItemGroup>
