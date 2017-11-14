@@ -15,7 +15,7 @@ public class ScoreTextManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         time -= Time.deltaTime;
-        if (time <= 0.0) {
+        if (time <= 0.0f) {
             time = 0.01f;
 
             scoretext.text = ("" + score);

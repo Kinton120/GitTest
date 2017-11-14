@@ -11,6 +11,7 @@ public class UnityChanManager : MonoBehaviour {
     public bool isRightSameTap;    //左右どちらかのボタンを二重で押されているか
     public bool isLeftSameTap;
     public float speed = 0.05f;     //ユニティちゃんのスピード
+    public GameObject textGameOver;
 
     // Use this for initialization
     void Start() {
@@ -107,6 +108,12 @@ public class UnityChanManager : MonoBehaviour {
             } else {
                 isLeftRunning = false;
             }
+        }
+    }
+
+    void OnCollisionEnter(Collision collision) {
+        if (collision.gameObject.tag == "Rock") {
+            textGameOver.SetActive(true);
         }
     }
 }

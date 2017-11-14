@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class RockManager : MonoBehaviour {
-    public GameObject rock;
-    public GameObject explosion;
+    public GameObject exploadObj;
+    public GameObject exploadPos;
 	// Use this for initialization
 	void Start () {
 		
@@ -12,11 +12,11 @@ public class RockManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+        transform.Rotate(new Vector3(90, 90, 90) * Time.deltaTime, Space.World);
+    }
 
     void OnCollisionEnter(Collision collision) {
-        rock = GameObject.Instantiate(explosion,transform.position,Quaternion.identity);
-        Destroy(this);
+        Instantiate(exploadObj, exploadPos.transform.position, Quaternion.identity);
+        Destroy(gameObject);
     }
 }
