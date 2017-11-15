@@ -136,6 +136,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rock: {fileID: 1807390171871068, guid: 3996a400773c254478d25251d15c3cbf, type: 2}
+  changeTime: 0
+  rockBody: {fileID: 54960092997858638, guid: 3996a400773c254478d25251d15c3cbf, type: 2}
+  textScore: {fileID: 511494394}
+  scoreTextManager: {fileID: 0}
 --- !u!4 &28641653
 Transform:
   m_ObjectHideFlags: 0
@@ -147,7 +151,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &61983523
 GameObject:
@@ -310,6 +314,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoretext: {fileID: 511494396}
+  score: 0
 --- !u!1 &600044974
 GameObject:
   m_ObjectHideFlags: 0
@@ -397,7 +402,7 @@ RectTransform:
   m_Children:
   - {fileID: 61983524}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -749,6 +754,10 @@ Prefab:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 00aa81bc159804f40a596d057d986573, type: 2}
+    - target: {fileID: 1557417721220464, guid: b0768a4ef7556e24697ad2db0cc36243, type: 2}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b0768a4ef7556e24697ad2db0cc36243, type: 2}
   m_IsPrefabParent: 0
@@ -1047,7 +1056,7 @@ GameObject:
   - component: {fileID: 1562592400}
   m_Layer: 0
   m_Name: Plane
-  m_TagString: Untagged
+  m_TagString: Plane
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
