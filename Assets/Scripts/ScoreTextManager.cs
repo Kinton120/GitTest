@@ -7,19 +7,24 @@ public class ScoreTextManager : MonoBehaviour {
     public Text scoretext;
     private float time;
     public int score;
-	// Use this for initialization
-	void Start () {
+    public GameObject unityChan;
+    public UnityChanManager unityChanManager;
+    // Use this for initialization
+    void Start () {
+        unityChanManager = unityChan.GetComponent<UnityChanManager>();
         score = 0;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        time -= Time.deltaTime;
-        if (time <= 0.0f) {
-            time = 0.01f;
+        if (unityChanManager.isDeath == false) {
+            time -= Time.deltaTime;
+            if (time <= 0.0f) {
+                time = 0.01f;
 
-            scoretext.text = ("" + score);
-            score++;
+                scoretext.text = ("" + score);
+                score++;
+            }
         }
 	}
 }

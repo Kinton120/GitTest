@@ -4,45 +4,48 @@ using UnityEngine;
 
 public class UnityChanManager : MonoBehaviour {
 
-    private Animator animator;      //ユニティちゃんの動作
+    public Animator animator;      //ユニティちゃんの動作
     public bool isRightRunning;     //右向きに走っているか
     public bool isLeftRunning;      //左向きに走っているか
     public bool isBothButton;       //左右のボタンがどちらも押されているか
     public bool isRightSameTap;    //左右どちらかのボタンを二重で押されているか
     public bool isLeftSameTap;
     public float speed = 0.05f;     //ユニティちゃんのスピード
-    public GameObject textGameOver;
+    public bool isDeath;
 
     // Use this for initialization
     void Start() {
         animator = GetComponent<Animator>();
+        isDeath = false;
     }
 
     // Update is called once per frame
     void Update() {
-        //左右のボタンがどちらも押されていたとき
-        if (isRightRunning && isLeftRunning) {
-            animator.SetBool("is_running", false);
-            isRightRunning = false;
-            isLeftRunning = false;
-            isBothButton = true;
-        } else
-        //左右のボタンのどちらかが押されているとき
-        if (isRightRunning || isLeftRunning) {
-            animator.SetBool("is_running", true);
-            Vector3 pos = transform.position;
-            if (isRightRunning) {
-                pos.x -= speed;
-            } else {
-                pos.x += speed;
+        if (isDeath == false) {
+            //左右のボタンがどちらも押されていたとき
+            if (isRightRunning && isLeftRunning) {
+                animator.SetBool("is_running", false);
+                isRightRunning = false;
+                isLeftRunning = false;
+                isBothButton = true;
+            } else
+            //左右のボタンのどちらかが押されているとき
+            if (isRightRunning || isLeftRunning) {
+                animator.SetBool("is_running", true);
+                Vector3 pos = transform.position;
+                if (isRightRunning) {
+                    pos.x -= speed;
+                } else {
+                    pos.x += speed;
+                }
+                if (pos.x >= 2.3f) {
+                    pos.x = 2.3f;
+                }
+                if (pos.x <= -2.3f) {
+                    pos.x = -2.3f;
+                }
+                transform.position = pos;
             }
-            if (pos.x >= 2.3f) {
-                pos.x = 2.3f;
-            }
-            if (pos.x <= -2.3f) {
-                pos.x = -2.3f;
-            }
-            transform.position = pos;
         }
     }
 
@@ -113,7 +116,7 @@ public class UnityChanManager : MonoBehaviour {
 
     void OnCollisionEnter(Collision collision) {
         if (collision.gameObject.tag == "Rock") {
-            textGameOver.SetActive(true);
+            isDeath = true;
         }
     }
 }
